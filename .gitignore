@@ -4,8 +4,9 @@ playground/
 # VS Code settings
 .vscode/
 
-# Ignore SQLite db files
+# Ignore SQLite db files and data stored files
 *.db
+data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
