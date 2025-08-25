@@ -1,7 +1,7 @@
 from sqlmodel import SQLModel, Field
 from datetime import datetime, timezone
 import uuid
-import sqlalchemy as sa  # NEW
+import sqlalchemy as sa
 
 def _utcnow() -> datetime:
     # Always store UTC

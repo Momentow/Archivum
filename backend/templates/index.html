@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Archivum</title>
+
+<body style="font-family:system-ui;max-width:900px;margin:2rem auto;">
+    <h1>Archivum</h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data" style="margin:1rem 0;">
+        <input type="file" name="file" accept="application/pdf" required>
+        <button type="submit">Upload PDF</button>
+    </form>
+
+    <h2>Library</h2>
+    <ul>
+        {% for d in docs %}
+        <li>
+            <strong title="{{ d.id }}">{{ d.original_name }}</strong>
+            — status: <em>{{ d.ocr_status }}</em>
+            — <a href="/files/{{ d.filename }}" target="_blank">PDF</a>
+            {% if d.text_path %} — <a href="{{ d.text_path }}" target="_blank">Text</a>{% endif %}
+            — <small>{{ d.created_at }}</small>
+        </li>
+        {% else %}
+        <li>No documents yet.</li>
+        {% endfor %}
+    </ul>
+</body>
