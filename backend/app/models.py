@@ -16,4 +16,5 @@ class Document(SQLModel, table=True):
         sa_column=sa.Column(sa.DateTime(timezone=True), nullable=False, index=True),
     )
     ocr_status: str = Field(default="pending")   # pending|processing|ready|failed
-    text_path: str | None = None                 # e.g., "/text/<id>.txt"
+    text_path: str = ""                          # e.g., "/text/<id>.txt"
+    detected_language: str = ""                  # e.g., "en"
